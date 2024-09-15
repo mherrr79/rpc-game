@@ -18,14 +18,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Route("rock-paper-scissors")
 public class GameView extends VerticalLayout {
     private RPCGameOperations gameService;
-    private PastMoveFrequencyAwareGameService pastMoveFrequencyAwareGameService;
-    private MarkovChainBasedGameService markovChainBasedGameService;
+    private final PastMoveFrequencyAwareGameService pastMoveFrequencyAwareGameService;
+    private final MarkovChainBasedGameService markovChainBasedGameService;
 
     private final Span resultSpan = new Span();
     private final Span statsSpan = new Span();
 
     @Autowired
-    public GameView(@Autowired PastMoveFrequencyAwareGameService pastMoveFrequencyAwareGameService, @Autowired MarkovChainBasedGameService markovChainBasedGameService) {
+    public GameView(PastMoveFrequencyAwareGameService pastMoveFrequencyAwareGameService,
+                    MarkovChainBasedGameService markovChainBasedGameService) {
 
         this.pastMoveFrequencyAwareGameService = pastMoveFrequencyAwareGameService;
         this.markovChainBasedGameService = markovChainBasedGameService;

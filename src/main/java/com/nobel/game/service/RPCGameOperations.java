@@ -17,7 +17,10 @@ public interface RPCGameOperations {
 
     Statistics getStatistics();
 
-    BiPredicate<Move, Move> PLAYER_WINS_BIPREDICATE = (player, computer) -> (player == Move.ROCK && computer == Move.SCISSORS) || (player == Move.PAPER && computer == Move.ROCK) || (player == Move.SCISSORS && computer == Move.PAPER);
+    BiPredicate<Move, Move> PLAYER_WINS_BIPREDICATE = (player, computer) ->
+            (player == Move.ROCK && computer == Move.SCISSORS)
+                    || (player == Move.PAPER && computer == Move.ROCK)
+                    || (player == Move.SCISSORS && computer == Move.PAPER);
 
     default Move counterMove(Move move) {
         return switch (move) {
